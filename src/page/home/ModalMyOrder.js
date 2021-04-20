@@ -56,6 +56,23 @@ export default class ModalMyOrder extends Component {
                           </div>
 
                           <div className="d-flex justify-content-end m-2">
+                            {data.status === "proccess" ? (
+                              <button
+                                className="btn btn-success me-1"
+                                onClick={() => deleteOrder(data.id)}
+                              >
+                                received?
+                              </button>
+                            ) : (
+                              data.status === "accept" && (
+                                <button
+                                  className="btn btn-success me-1"
+                                  onClick={() => deleteOrder(data.id)}
+                                >
+                                  received?
+                                </button>
+                              )
+                            )}
                             <button
                               className="btn btn-danger"
                               onClick={() => deleteOrder(data.id)}

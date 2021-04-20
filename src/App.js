@@ -14,6 +14,7 @@ import {
   useParams,
   useHistory,
 } from "react-router-dom";
+import { DropdownMaterial } from "./component/index";
 function App() {
   return (
     <Router>
@@ -73,7 +74,7 @@ function AnimationApp() {
         <Register history={history} />
       </PrivateRouteWithoutLogin>
       <PrivateRoute exact path="/">
-        <Home history={history} />
+        <Home Dd={DropdownMaterial} history={history} />
       </PrivateRoute>
     </Switch>
   );

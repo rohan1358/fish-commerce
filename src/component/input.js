@@ -1,6 +1,22 @@
 import React, { Component } from "react";
-
+import DropdownMaterial from "./DropdownMaterial";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 class Input2 extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      anchorEl: null,
+    };
+  }
+  handleClick = (event) => {
+    console.log(event.currentTarget);
+    this.setState({ ...this.state, anchorEl: event.currentTarget });
+  };
+  handleClose = () => {
+    this.setState({ ...this.state, anchorEl: null });
+  };
   render() {
     const {
       type,
@@ -10,10 +26,11 @@ class Input2 extends Component {
       handleChange,
       dataCategory,
       value,
+      Dd,
     } = this.props;
     if (type === "input") {
       return (
-        <div className="col-sm-10">
+        <div className="d-flex col-sm-10">
           <input
             value={value && value}
             onChange={(e) => {
@@ -25,6 +42,28 @@ class Input2 extends Component {
             placeholder={placeholder ? placeholder : "-"}
             aria-label=".form-control-sm example"
           />
+          {Dd && (
+            <React.Fragment>
+              <Button
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={(e) => this.handleClick(e)}
+              >
+                Type
+              </Button>
+              <Menu
+                id="simple-menu"
+                anchorEl={this.state.anchorEl}
+                keepMounted
+                open={Boolean(this.state.anchorEl)}
+                onClose={() => this.handleClose()}
+              >
+                <MenuItem onClick={() => this.handleClose()}>Kg</MenuItem>
+                <MenuItem onClick={() => this.handleClose()}>Ekor</MenuItem>
+                <MenuItem onClick={() => this.handleClose()}>Product</MenuItem>
+              </Menu>
+            </React.Fragment>
+          )}
         </div>
       );
     } else if (type === "textArea") {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Input } from "../component/index";
+import { DropdownMaterial, Input } from "../component/index";
 
 class ModalDetail2 extends Component {
   constructor(props) {
@@ -83,6 +83,7 @@ class ModalDetail2 extends Component {
                           inpType="number"
                           name="price"
                         />
+                        <this.props.Dd />
                       </div>
                       <div className="mb-3 row">
                         {/* name product */}
@@ -210,6 +211,7 @@ class ModalDetail2 extends Component {
                         {/* name product */}
                         <label className="col-sm-2 col-form-label">Stock</label>
                         <Input
+                          Dd={DropdownMaterial}
                           value={parseInt(stock_product)}
                           handleChange={(e) => handleChange(e, true)}
                           type="input"
@@ -335,6 +337,9 @@ class ModalDetail2 extends Component {
                         <h6>Stock : {data.stock_product}</h6>
                       </div>
                     </div>
+                  </div>
+                  <div className="container">
+                    <label>Penilaian Product</label>
                   </div>
                 </div>
               </div>

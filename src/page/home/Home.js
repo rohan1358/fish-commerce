@@ -20,6 +20,7 @@ export default class Home extends Component {
       type: "",
       search: "",
     };
+    this.Dd = this.props.Dd;
   }
   componentDidMount() {
     const {
@@ -646,6 +647,7 @@ export default class Home extends Component {
             category={category}
             handleChange={(e, types) => this.handleChange(e, types)}
             dataProduct={this.state}
+            Dd={this.Dd}
           />
         </div>
         {loading && <Loading />}
